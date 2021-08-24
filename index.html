@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>Login</title>
+    </head>
+    <body>
+                <input type="text" name="usuario" id="usuario" placeholder="Usuario"> <br>
+                <input type="password" name="pass" id="pass" placeholder="Contraseña"> <hr>
+                <button onclick="agregarUsuario()"> Agregar </button>
+
+
+            <ul id="usuariosNuevos">
+
+            </ul>
+
+            <script>
+                function agregarUsuario() {
+                    let usuario = document.getElementById ('usuario');
+                    let password = document.getElementById ('pass');
+                    let listaDeUsuarios = document.getElementById ( 'usuariosNuevos');
+
+                    let newUsuario = document.createElement ('li');
+                    newUsuario.append ( usuario.value + ' ' + pass.value );
+                    listaDeUsuarios.append ( newUsuario );
+
+
+                    let listadoCompleto = localStorage.getItem('usuarios');
+                    listadoCompleto += usuario.value + ' ' + pass.value + ' | ';   
+
+                    localStorage.setItem('usuarios' , listadoCompleto);
+                    console.log(localStorage.getItem('usuarios'));
+
+                }
+            </script>
+       
+    </body>
+
+</html>
